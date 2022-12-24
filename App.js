@@ -1,20 +1,19 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {HomeScreen} from './src/screens';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.mainContainer}>
-        <Text>App</Text>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: 'red',
-  },
-});
